@@ -3,12 +3,12 @@ import torch
 
 
 class Gaussian_Writing_GRU(nn.Module):
-    def __init__(self, n_gaussian=20, dropout=0, rnn_size=256):
+    def __init__(self, n_gaussian=20, dropout=0, rnn_size=256, rnn_layers=2, input_size=3):
         super(Gaussian_Writing_GRU, self).__init__()
         self.n_gaussian = n_gaussian
         self.rnn_size = rnn_size
         self.n_output = 1 + n_gaussian * 6
-        self.rnn = nn.GRU(3, self.rnn_size, 2, dropout=dropout)
+        self.rnn = nn.GRU(input_size, self.rnn_size, rnn_layers, dropout=dropout)
         self.linear = nn.Linear(self.rnn_size, self.n_output)
 
     def forward(self, input, hidden=None):
