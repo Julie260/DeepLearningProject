@@ -7,7 +7,7 @@ file_name = 'Gaussian_Writing_LSTMepoch_2000.pt'
 path = 'C://Users//Julie//Documents//GitHub//DL-test//trained_models//'
 
 model_name = 'Gaussian_Writing_LSTM'
-parameters = {'n_gaussian': 20, 'dropout': 0.2, 'rnn_size': 256}
+parameters = {'n_gaussian': 20, 'dropout': 0.2, 'rnn_size': 256, 'rnn_layers': 2, "input_size": 3}
 net = model.get_model(model_name, parameters)
 
 net.load_state_dict(torch.load(path+file_name))
