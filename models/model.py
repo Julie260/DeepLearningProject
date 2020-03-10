@@ -1,6 +1,5 @@
 from models.Gaussian_Writing_GRU import Gaussian_Writing_GRU
 from models.Gaussian_Writing_LSTM import Gaussian_Writing_LSTM
-from models.Gaussian_Writing_GRU_LSTM import Gaussian_Writing_GRU_LSTM
 
 
 def get_model(name, parameters):

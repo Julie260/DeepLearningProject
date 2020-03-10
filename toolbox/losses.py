@@ -3,14 +3,22 @@ from torch import nn
 import math
 
 
-def calculate_loss(model, x, xNext, hidden=None):
+def calculate_loss(model, x, xNext, data, hidden=None):
   batch_size = x.size(1)
-  mu1, mu2, log_sigma1, log_sigma2, rho, pi_logits, z0_logits, hidden = model.forward(x, hidden)
-  xNext = xNext.view(-1,3)
-  x1, x2, x_eos = xNext.split(1,dim=1)
+  mu1, mu2, log_sigma1, log_sigma2, rho, pi_logits, z0_logits, d0_logits, hidden = model.forward(x, hidden)
+  if data == "IAM":
+    xNext = xNext.view(-1,3)
+    x1, x2, x_eos = xNext.split(1,dim=1)
+  if (data == "MNIST" or data == "split_MNIST"):
+    xNext = xNext.view(-1,5)
+    x1, x2, x_eos, x_eod, label = xNext.split(1,dim=1)
   loss1 = - logP_gaussian(model, x1, x2, mu1, mu2, log_sigma1, log_sigma2, rho, pi_logits)
   loss2 = nn.functional.binary_cross_entropy_with_logits(z0_logits,x_eos,size_average=False)
-  loss = (loss1 + loss2)/batch_size # average over mini-batch
+  if data == "IAM":
+    loss = (loss1 + loss2)/batch_size
+  if data == "MNIST" or data == "split_MNIST":
+    loss3 = nn.functional.binary_cross_entropy_with_logits(d0_logits,x_eod,size_average=False)
+    loss = (loss1 + 0.5*loss2 + 0.5*loss3)/batch_size # average over mini-batch
   return loss, hidden
 
 def logsumexp(x):

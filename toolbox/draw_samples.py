@@ -15,3 +15,4 @@ def plot_points(data):
         plt.plot(tmp[:, 0], tmp[:, 1], linewidth=2)
         start = end + 1
     plt.show()
+
