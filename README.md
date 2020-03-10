@@ -1,6 +1,11 @@
 # DeepLearningProject
 #RNN for handwritting generation
 
+## Team members:
+- Julie Dessaint
+- Lola Duhalde
+- Myriam Qrichi Aniba
+
 Adapted from https://lirnli.wordpress.com/2017/09/24/notes-fake-handwriting-generation-with-pytorch/ and Alex Grave's famous paper https://arxiv.org/abs/1308.0850
 
 ## Data
