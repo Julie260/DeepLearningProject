@@ -1,12 +1,11 @@
-# DeepLearningProject
-#RNN for handwritting generation
+# DeepLearningProject - RNN for handwritting generation
+
+Adapted from https://lirnli.wordpress.com/2017/09/24/notes-fake-handwriting-generation-with-pytorch/ and Alex Grave's famous paper https://arxiv.org/abs/1308.0850
 
 ## Team members:
 - Julie Dessaint
 - Lola Duhalde
 - Myriam Qrichi Aniba
-
-Adapted from https://lirnli.wordpress.com/2017/09/24/notes-fake-handwriting-generation-with-pytorch/ and Alex Grave's famous paper https://arxiv.org/abs/1308.0850
 
 ## Data
 
@@ -53,7 +52,7 @@ The data can be downloaded here [https://github.com/edwin-de-jong/mnist-digits-s
 
 - use train.py to train a model, be careful of changing the paths at the beginning of the file
 - use generate_handwriting.py to generate handwriting from a trained model, be careful, you need to change the paths and you need to initialize the corresponding model (GRU or LSTM) with the right parameters (the files are named this way : LSTM/GRU_IAM/MNIST_nb epoch_ne gaussian_learning rate_optimizer_rnn size_n layers)
-- use generate_digits.py to generate digits from the trained models in train_split_MNIST_models directory. Be careful to change the paths at the beginning of the file. (here you do not need to change the model parameters)
+- use generate_digits.py to generate digits from the trained models in train_split_MNIST_models directory. Be careful to change the paths at the beginning of the file (here you do not need to change the model parameters).
 
 
 
