@@ -3,20 +3,21 @@
 
 Adapted from https://lirnli.wordpress.com/2017/09/24/notes-fake-handwriting-generation-with-pytorch/ and Alex Grave's famous paper https://arxiv.org/abs/1308.0850
 
-##Data
-####IAM database
+## Data
+
+#### IAM database
 The IAM online handwriting database (IAM-OnDB) consists of handwritten lines collected from 221 diﬀerent writers using a connected whiteboard. Their pen was tracked and recorded using an infra-red device in the corner of the board.
 The original input data contains the x and y coordinates and the points where the pen is lifted. No pre-processing was used except to fill missing readings, and for exceeding lengths. The data used contains the \delta_x and \delta_y between the current and the last points, and an indicator of wether the pen was lifted or not.
 The data can be downloaded here [http://www.fki.inf.unibe.ch/databases/iam-handwriting-database].
 
-####MNIST database
+#### MNIST database
 The MNIST database of handwritten digits is mainly made of images of handwritten digits. It also offers files containing tables of coordinates that have been sampled on the images of the digits, enabling to follow mathematically the trail of the writers’ pen.
 We use for the training this second part of the dataset, very similar to the IAM database, as it contains the \delta_x and \delta_y from one point to the next one, but also two indicators. One indicates the end of the stroke, the other the end of the character.
 Finally, to enable the training for the on-demand generation of handwritten digits, we had to process the data in order to label it thanks to a separated file containing the ordered label of each sample.
 
 The data can be downloaded here [https://github.com/edwin-de-jong/mnist-digits-stroke-sequence-data/wiki/MNIST-digits-stroke-sequence-data?fbclid=IwAR2H1KkkFyVEam6-cY-oXoujkX2KTw8FIYtcSRBant9BKtIYTAXlGnI8Iug]
 
-##Project Structure
+## Project Structure
 
 ```bash
 .
